@@ -24,11 +24,16 @@ export class AppService {
 
 
     getEnrollmentId(userName,org) {
-    var data = "username="+userName+"&orgName="+org;  
-    let headers = new Headers({ 'Content-Type': 'x-www-form-urlencoded' });
+    console.log("username",userName);
+    let headers = new Headers({'cache-control':'no-cache', 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });
-    let body = data;
-    return this.http.post('localhost:4000/users', body, options )
+    let body1 = new URLSearchParams();
+    body1.set('username', userName);
+    body1.set('orgName', org);
+    console.log("body1 logs",body1)
+    let body = body1.toString(); 
+    console.log('server logs',body);
+    return this.http.post('http://localhost:4000/users', body, options )
     .map((res: Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in'));
   }
