@@ -38,4 +38,30 @@ export class AppService {
     .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in'));
   }
 
+
+
+   enrolldegree(name,depart,enrollnumber,cgpa,university,token){
+
+     argument=[name,depart,enrollnumber,cgpa,university];
+     chaincodefunction=["initDegree"];
+     endorsingpeer= ["localhost:10151","localhost:10351"];
+     let headers = new Headers({'cache-control':'no-cache', 'Content-Type': 'application/json',"authorization: Bearer"+token});
+     let options = new RequestOptions({ headers: headers });
+     let body1 = new URLSearchParams();
+     body1.set('peers', endorsingpeer);
+     body1.set('fcn', chaincodefunction);
+     body1.set('args',argument)
+     console.log("body1 logs",body1)
+     let body = body1.toString(); 
+     console.log('server logs',body);
+     return this.http.post('http://localhost:4000/channels/mychannel/chaincodes/mycc', body, options )
+    .map((res: Response) => res.json())
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in'));
+
+    
+
+
+
+}
+
  }
