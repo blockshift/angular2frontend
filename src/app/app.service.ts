@@ -42,15 +42,15 @@ export class AppService {
 
    enrolldegree(name,depart,enrollnumber,cgpa,university,token){
 
-     argument=[name,depart,enrollnumber,cgpa,university];
-     chaincodefunction=["initDegree"];
-     endorsingpeer= ["localhost:10151","localhost:10351"];
-     let headers = new Headers({'cache-control':'no-cache', 'Content-Type': 'application/json',"authorization: Bearer"+token});
+     
+     let headers = new Headers({'cache-control':'no-cache', 'Content-Type': 'application/json','peers':'localhost:10151,localhost:10351', 'fcn':'initDegree', 'authorization':'Bearer '+token});
      let options = new RequestOptions({ headers: headers });
      let body1 = new URLSearchParams();
-     body1.set('peers', endorsingpeer);
-     body1.set('fcn', chaincodefunction);
-     body1.set('args',argument)
+     body1.set('name',name);
+     body1.set('depart',depart);
+     body1.set('enrollnumber',enrollnumber);
+     body1.set('cgpa',cgpa);
+     body1.set('university',university);
      console.log("body1 logs",body1)
      let body = body1.toString(); 
      console.log('server logs',body);

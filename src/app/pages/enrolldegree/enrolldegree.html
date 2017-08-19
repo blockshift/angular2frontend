@@ -1,32 +1,50 @@
 
  <ba-card cardTitle="Input Degree Fields" baCardClass="with-scroll">
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)"  >
 <div class="row">
   <div class="col-sm-6">
+
     <div class="form-group">
-      <label for="inputFirstName">First Name</label>
-      <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+      <label for="inputFirstName">Name</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="name"  placeholder="Name" name="name">
     </div>
   </div>
   <div class="col-sm-6">
     <div class="form-group">
-      <label for="inputLastName">Last Name</label>
-      <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+      <label for="inputLastName">Department</label>
+      <input type="text" class="form-control" id="Department" [(ngModel)]="department"  placeholder="Department" name="Department">
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-sm-6">
     <div class="form-group">
-      <label for="inputEmail">Email</label>
-      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+      <label for="inputEmail">Enrollment Number</label>
+      <input type="email" class="form-control" id="EnrollmentNumber" [(ngModel)]="EnrollmentNumber"  placeholder="EnrollmentNumber" name="EnrollmentNumber">
     </div>
   </div>
   <div class="col-sm-6">
     <div class="form-group">
-      <label for="inputWebsite">Website</label>
-      <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+      <label for="inputWebsite">CGPA</label>
+      <input type="text" class="form-control" id="CGPA" [(ngModel)]="CGPA"  placeholder="CPGA" name="CGPA">
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="inputEmail">University</label>
+      <input type="email" class="form-control" id="University" [(ngModel)]="University"  placeholder="University" name="University">
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="inputWebsite">Token</label>
+      <input type="text" class="form-control" id="Token" placeholder="Token" [(ngModel)]="Token"  placeholder="Token" name="Token">
+    </div>
+  </div>
+</div>
+
 <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </ba-card>
