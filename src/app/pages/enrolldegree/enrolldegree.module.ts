@@ -6,6 +6,8 @@ import { EnrolldegreeComponent } from './enrolldegree.component';
 import { routing } from './enrolldegree.routing';
 import { NgaModule } from '../../theme/nga.module';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 @NgModule({
   imports: [
@@ -13,6 +15,8 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFormsModule,
     NgaModule,
     NgbRatingModule,
+    ModalModule.forRoot(),
+    BootstrapModalModule,
     routing
   ],
   declarations: [

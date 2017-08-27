@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -43,6 +46,8 @@ export type StoreType = {
     HttpModule,
     RouterModule,
     FormsModule,
+    ModalModule,
+    BootstrapModalModule,
     ReactiveFormsModule,
     NgaModule.forRoot(),
     NgbModule.forRoot(),

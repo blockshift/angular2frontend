@@ -1,4 +1,6 @@
-
+<h2>Basic Modal sample</h2>
+  <button (click)="onClick()">Alert</button>
+  <br>
  <ba-card cardTitle="Input Degree Fields" baCardClass="with-scroll">
 <form #f="ngForm" (ngSubmit)="onSubmit(f.value)"  >
 <div class="row">
@@ -12,7 +14,7 @@
   <div class="col-sm-6">
     <div class="form-group">
       <label for="inputLastName">Department</label>
-      <input type="text" class="form-control" id="Department" [(ngModel)]="department"  placeholder="Department" name="Department">
+      <input type="text" class="form-control" id="department" [(ngModel)]="department"  placeholder="Department" name="department">
     </div>
   </div>
 </div>

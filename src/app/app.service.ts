@@ -41,20 +41,23 @@ export class AppService {
 
 
    enrolldegree(name,depart,enrollnumber,cgpa,university,token){
-
+     console.log(depart);	
      let peer = '["localhost:10151","localhost:10351"]';
      let fcn = 'initDegree';	
-     let argument = '["'+name+'","'+depart+'","'+enrollnumber+'","'+cgpa+'","'+university+']';
+     let argument = name+','+depart+','+enrollnumber+','+cgpa+','+university;
      let headers = new Headers({'cache-control':'no-cache', 'Content-Type': 'application/json', 'authorization':'Bearer '+token});
      let options = new RequestOptions({ headers: headers });
-     let body1 = new URLSearchParams();
-     body1.set('peers','["localhost:10151","localhost:10351"]');
-     body1.set('fcn',fcn);
-     body1.set('args',argument);
-     console.log("body1 logs",body1)
-     console.log('server logs',body1);
-     return this.http.post('http://localhost:4000/channels/mychannel/chaincodes/mycc', body1, options )
-    .map((res: Response) => res.json())
+     
+     let body1 = {
+             peers: ["localhost:10151","localhost:10351"],
+             fcn: fcn,
+             args: argument
+                }
+let body = JSON.stringify(body1);
+     console.log("body1 logs",body1);
+     console.log('server logs',body);
+     return this.http.post('http://localhost:4000/channels/mychannel/chaincodes/mycc', body, options )
+    .map((res: Response) => res)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in'));
 
     
