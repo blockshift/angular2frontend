@@ -1,6 +1,14 @@
-<h2>Basic Modal sample</h2>
-  <button (click)="onClick()">Alert</button>
-  <br>
+
+
+<modal #myModal>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Your transaction successfully added</h4>
+    </modal-header>
+    <modal-body>
+       Your transaction Id :{{testResponse}}
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>
  <ba-card cardTitle="Input Degree Fields" baCardClass="with-scroll">
 <form #f="ngForm" (ngSubmit)="onSubmit(f.value)"  >
 <div class="row">

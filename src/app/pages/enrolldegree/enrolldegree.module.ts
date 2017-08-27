@@ -1,13 +1,12 @@
 import { NgModule }  from '@angular/core';
 import { CommonModule }  from '@angular/common';
 import { FormsModule as AngularFormsModule } from '@angular/forms';
-
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { EnrolldegreeComponent } from './enrolldegree.component';
 import { routing } from './enrolldegree.routing';
 import { NgaModule } from '../../theme/nga.module';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalModule } from 'angular2-modal';
-import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
 
 @NgModule({
   imports: [
@@ -15,8 +14,7 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
     AngularFormsModule,
     NgaModule,
     NgbRatingModule,
-    ModalModule.forRoot(),
-    BootstrapModalModule,
+    Ng2Bs3ModalModule, 
     routing
   ],
   declarations: [
