@@ -36,7 +36,7 @@ export class AppService {
     return this.http.post('http://localhost:4000/users', body, options )
     .map((res: Response) => res.json())
     .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in'));
-  }
+  };
 
 
 
@@ -60,10 +60,20 @@ let body = JSON.stringify(body1);
     .map((res: Response) => res)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in'));
 
-    
+};
 
 
+  getblockchaininfo(){
+       let token ='ash';
+       let headers = new Headers({'cache-control':'no-cache', 'Content-Type': 'application/json', 'authorization':'Bearer '+token});
+       let options = new RequestOptions({ headers: headers });
+        
+     return this.http.get('http://localhost:4000/channels/mychannel?peer=peer1', options )
+    .map((res: Response) => res)
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in'));
 
-}
+  } 
+
+
 
  }
