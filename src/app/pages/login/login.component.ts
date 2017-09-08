@@ -1,33 +1,51 @@
-import {Component} from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-
+import {Component,OnInit} from '@angular/core';
+import { AppService } from '~/./../app/app.service';
 @Component({
   selector: 'login',
   templateUrl: './login.html',
   styleUrls: ['./login.scss']
 })
-export class Login {
+export class Login implements OnInit {
 
-  public form:FormGroup;
-  public email:AbstractControl;
-  public password:AbstractControl;
-  public submitted:boolean = false;
+  
+  constructor(private AppService: AppService) {
+      }
 
-  constructor(fb:FormBuilder) {
-    this.form = fb.group({
-      'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-    });
 
-    this.email = this.form.controls['email'];
-    this.password = this.form.controls['password'];
-  }
+ngOnInit(){
+      var blockheight = this.getStats();
+      	};	
+   
+private blockdata = [];
+BlockchainHeight:any;
 
-  public onSubmit(values:Object):void {
-    this.submitted = true;
-    if (this.form.valid) {
-      // your code goes here
-      // console.log(values);
-    }
-  }
+    getStats(){
+        this.AppService.getblockchaininfo().subscribe(data=>{
+                var decentralizeddata = JSON.parse(data["_body"]);     
+        	console.log(decentralizeddata.height.low);
+                this.BlockchainHeight=decentralizeddata.height.low;
+                var dummy = this.BlockchainHeight;
+        });
+
+               this.getblockdata(this.BlockchainHeight);
+};
+   getblockdata(blockheight){
+             console.log("Print blockheight",blockheight);
+             for(var i =1;i< 3 ; i++ ){
+            this.AppService.fetchblock(i).subscribe(data=>{
+               console.log("data here",data);
+             var blockdata = JSON.parse(data["_body"]);
+              
+             this.blockdata.push(blockdata.header.data_hash);
+
+             console.log("This is block data",this.blockdata);
+
+});
+
+
+};
+};
 }
+
+ 
+

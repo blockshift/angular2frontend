@@ -1,19 +1,26 @@
 <div class="row">
-  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-   <ba-card>
-     <h3> Blockchain Height</h3>
-     {{BlockchainHeight}}
-   </ba-card>
-  </div>
-
-<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
    <ba-card>
      <h3> Current Data Hash</h3>
-     {{CurrentDataHash}}
+     {{firstpartofCurrentDataHash}}
+<br>
+     {{secondpartofCurrentDataHash}}	
    </ba-card>
   </div>
 
 </div>
+
+
+
+<div class="row">
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+   <ba-card>
+     <h3> Blockchain Height</h3>
+     <h3>{{BlockchainHeight}}</h3>
+   </ba-card>
+  </div>
+</div>
+
 
 
 <div class="row">

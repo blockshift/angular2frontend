@@ -1,3 +1,14 @@
+<modal #myModal size="lg">
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Please copy this token. You are enrolled!!</h4>
+    </modal-header>
+    <modal-body>
+       <h5>Token :</h5>{{tokenfirstpart}}
+	<br>
+	{{tokensecondpart}}
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>
 <div class="row">
 <div class="col-md-6">
 <ba-card  baCardClass="with-scroll">

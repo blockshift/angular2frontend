@@ -27,7 +27,8 @@ export class EnrolldegreeComponent {
   	this.exampleService.enrolldegree(form.name,form.department,form.EnrollmentNumber,form.CGPA,form.University,form.Token)
   	.subscribe(data => {
                      this.testResponse = data["_body"] ;
-                     this.modal.open();
+                     if (this.testResponse != null){
+                     this.modal.open();}
                      console.log("I SEE DATA HERE: ", this.testResponse);
                      
                //      }
