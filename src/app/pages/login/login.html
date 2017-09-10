@@ -4,4 +4,37 @@
 
 </ba-card>
 
-
+<modal #myModal size="lg">
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Transaction Details</h4>
+    </modal-header>
+    <modal-body>
+      <b> Validation Code</b> :{{transactionvalidationcode}}
+     <br>
+      <b> Transaction Creator</b> :{{transactioncreator}}
+     <br>
+      <b> Enrollment Number </b> : {{enrollmentnumber}}
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+      <th>Block Number</th>
+       <th>Transaction Id</th>
+        <th>Time stamp</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let data of publicblockdata">
+       <td>{{data.blocknumber}}</td>
+      <td (click)=displaydetail(data.transactionid)>{{data.transactionid}}</td>
+        <td>{{data.timestamp}}</td>
+        
+        
+      </tr>
+    </tbody>
+  </table>
+</div>

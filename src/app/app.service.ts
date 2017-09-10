@@ -72,7 +72,20 @@ let body = JSON.stringify(body1);
     .map((res: Response) => res)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in'));
 
-  } 
+  }
+
+
+
+  getdetails(transactionid){
+     console.log('transaction id from server',transactionid);
+     let headers = new Headers({'cache-control':'no-cache', 'Content-Type': 'application/json', 'authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MDUwNzc0OTAsInVzZXJuYW1lIjoiSmltIiwib3JnTmFtZSI6Im9yZzEiLCJpYXQiOjE1MDQ3MTc0OTB9.C_YtouZnImkY2MaVxIwU5U-O91RzzPWnzea8VInc8Ig'});
+     let options = new RequestOptions({ headers: headers });
+        
+     return this.http.get('http://localhost:4000/channels/mychannel/transactions/'+transactionid+'?peer=peer2', options )
+    .map((res: Response) => res)
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error shit bang in')); 
+
+} 
 
 
 

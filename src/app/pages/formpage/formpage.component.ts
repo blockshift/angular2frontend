@@ -21,7 +21,7 @@ export class FormpageComponent {
   	.subscribe(data => {
                      var testRespons = data.token;
 		     console.log(testRespons);	
-		     this.tokenfirstpart=testRespons.substring(0,80);
+		     this.tokenfirstpart=testRespons;
 		     this.tokensecondpart=testRespons.substring(81,175);		
 		     this.modal.open();	
                      console.log("I SEE DATA HERE: ", this.testResponse);
