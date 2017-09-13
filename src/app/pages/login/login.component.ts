@@ -23,6 +23,7 @@ transactionvalidationcode:any;
 transactioncreator:any;
 BlockchainHeight:any;
 enrollmentnumber:any;
+endorsements:any;
 publicblockdata=[];
     getStats(){
         this.AppService.getblockchaininfo().subscribe(data=>{
@@ -47,10 +48,11 @@ publicblockdata=[];
      this.transactionvalidationcode=intermediatedata.validationCode;
      this.transactioncreator=intermediatedata["transactionEnvelope"].payload.header.signature_header["creator"].Mspid;
      this.enrollmentnumber=intermediatedata["transactionEnvelope"].payload.data;
+     this.endorsements = this.enrollmentnumber["actions"][0].payload.action.endorsements;
      this.modal.open();
      console.log(intermediatedata);
-     console.log(this.enrollmentnumber);
-
+     console.log(this.enrollmentnumber["actions"][0].payload.action.endorsements[0]);
+     console.log('Enrollment Data',intermediatedata);
 
 
 }); 
@@ -62,7 +64,7 @@ publicblockdata=[];
 
    getblockdata(blockheight){
              console.log("Print blockheight",blockheight);
-             for(var i =1;i<= 5 ; i++ ){
+             for(var i =1;i<= 20 ; i++ ){
             this.AppService.fetchblock(i).subscribe(data=>{
                console.log("data here",data);
              var blockdatas = JSON.parse(data["_body"]);

@@ -13,7 +13,10 @@
      <br>
       <b> Transaction Creator</b> :{{transactioncreator}}
      <br>
-      <b> Enrollment Number </b> : {{enrollmentnumber}}
+      <b> Endorsements </b>: 
+         <div *ngFor="let endorse of endorsements">
+              {{endorse.endorser.Mspid}}
+         </div>
     </modal-body>
     <modal-footer [show-default-buttons]="true"></modal-footer>
 </modal>
